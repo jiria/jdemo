@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faysarah1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: faysarah1
+  template:
+    metadata:
+      labels:
+        app: faysarah1
+        group: faysarah
+    spec:
+      containers:
+      - name: faysarah1
+        image: jdemo.azurecr.io/faysarah
+        imagePullPolicy: Always
+        env:
+        - name: RTSP_URL
+          value: rtsp://192.168.1.2:8900/live
+      imagePullSecrets:
+      - name: regcred2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: faysarah
+  namespace: default
+spec:
+  selector:
+    group: faysarah
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8083

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: isabella
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: isabella
+  template:
+    metadata:
+      labels:
+        app: isabella
+    spec:
+      containers:
+      - name: isabella
+        image: jdemo.azurecr.io/isabella
+        resources:
+          limits:
+            cpu: "1.5"
+            nvidia.com/gpu: 1
+          requests:
+            cpu: "1.5"
+            nvidia.com/gpu: 1
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: regcred2
