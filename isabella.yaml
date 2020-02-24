@@ -15,6 +15,11 @@ spec:
       containers:
       - name: isabella
         image: jdemo.azurecr.io/isabella
+        env:
+        - name: SOURCE_SVC
+          value: faysarah
+        - name: SINK_SVC
+          value: tina
         resources:
           limits:
             cpu: "1.5"
