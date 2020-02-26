@@ -14,12 +14,37 @@ spec:
         group: faysarah
     spec:
       containers:
-      - name: faysarah1
+      - name: faysarah
         image: jdemo.azurecr.io/faysarah
         imagePullPolicy: Always
         env:
         - name: RTSP_URL
           value: rtsp://192.168.1.5:8900/live
+      imagePullSecrets:
+      - name: regcred2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faysarah2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: faysarah2
+  template:
+    metadata:
+      labels:
+        app: faysarah2
+        group: faysarah
+    spec:
+      containers:
+      - name: faysarah
+        image: jdemo.azurecr.io/faysarah
+        imagePullPolicy: Always
+        env:
+        - name: RTSP_URL
+          value: rtsp://admin:admin@192.168.1.108:554/cam/realmonitor?channel=1&subtype=1
       imagePullSecrets:
       - name: regcred2
 ---
