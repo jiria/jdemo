@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: RTSP_URL
-          value: rtsp://192.168.1.2:8900/live
+          value: rtsp://192.168.1.5:8900/live
       imagePullSecrets:
       - name: regcred2
 ---
