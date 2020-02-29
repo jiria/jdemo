@@ -22,7 +22,6 @@ spec:
           value: tina
         resources:
           limits:
-            cpu: "2.5"
             nvidia.com/gpu: 1
           requests:
             cpu: "2.5"
