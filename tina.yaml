@@ -24,10 +24,14 @@ kind: Service
 metadata:
   name: tina
   namespace: default
+  labels:
+    app: tina
 spec:
   selector:
     app: tina
   ports:
-  - protocol: TCP
+  - name: grpc
     port: 80
     targetPort: 8083
+  - name: metrics
+    port: 8000
