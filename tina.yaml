@@ -35,3 +35,16 @@ spec:
     targetPort: 8083
   - name: metrics
     port: 8000
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: tina
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: tina
+  endpoints:
+  - port: metrics

@@ -128,10 +128,27 @@ kind: Service
 metadata:
   name: faysarah
   namespace: default
+  labels:
+    app: faysarah
 spec:
   selector:
     group: faysarah
   ports:
-  - protocol: TCP
+  - name: grpc
     port: 80
     targetPort: 8083
+  - name: metrics
+    port: 8000
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: faysarah
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: faysarah
+  endpoints:
+  - port: metrics
