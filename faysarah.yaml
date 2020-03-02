@@ -13,6 +13,18 @@ spec:
         app: faysarah1
         group: faysarah
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: "group"
+                    operator: In
+                    values:
+                    - faysarah
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: faysarah
         image: jdemo.azurecr.io/faysarah
@@ -38,6 +50,18 @@ spec:
         app: faysarah2
         group: faysarah
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: "group"
+                    operator: In
+                    values:
+                    - faysarah
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: faysarah
         image: jdemo.azurecr.io/faysarah
@@ -63,6 +87,18 @@ spec:
         app: faysarah3
         group: faysarah
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: "group"
+                    operator: In
+                    values:
+                    - faysarah
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: faysarah
         image: jdemo.azurecr.io/faysarah
@@ -88,6 +124,18 @@ spec:
         app: faysarah4
         group: faysarah
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: "group"
+                    operator: In
+                    values:
+                    - faysarah
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: faysarah
         image: jdemo.azurecr.io/faysarah
@@ -113,6 +161,18 @@ spec:
         app: faysarah5
         group: faysarah
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: "group"
+                    operator: In
+                    values:
+                    - faysarah
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: faysarah
         image: jdemo.azurecr.io/faysarah
