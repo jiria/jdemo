@@ -16,6 +16,9 @@ spec:
       - name: tina
         image: jdemo.azurecr.io/tina
         imagePullPolicy: Always
+        env:
+        - name: THRESHOLD
+          value: "1.7"
       imagePullSecrets:
       - name: regcred2
 ---
