@@ -14,8 +14,6 @@ spec:
       containers:
       - name: isabella
         image: jdemo.azurecr.io/isabella
-        securityContext:
-          privileged: true
         env:
         - name: SOURCE_SVC
           value: faysarah
