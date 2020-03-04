@@ -18,7 +18,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: THRESHOLD
-          value: "1.9"
+          value: "1.7"
       imagePullSecrets:
       - name: regcred2
 ---
