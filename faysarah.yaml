@@ -71,43 +71,6 @@ spec:
           value: rtsp://admin:admin@192.168.1.108:554/cam/realmonitor?channel=1&subtype=1
       imagePullSecrets:
       - name: regcred2
-# ---
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: faysarah3
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: faysarah3
-#   template:
-#     metadata:
-#       labels:
-#         app: faysarah3
-#         group: faysarah
-#     spec:
-#       affinity:
-#         podAntiAffinity:
-#           preferredDuringSchedulingIgnoredDuringExecution:
-#           - weight: 100
-#             podAffinityTerm:
-#               labelSelector:
-#                 matchExpressions:
-#                   - key: "group"
-#                     operator: In
-#                     values:
-#                     - faysarah
-#               topologyKey: "kubernetes.io/hostname"
-#       containers:
-#       - name: faysarah
-#         image: jdemo.azurecr.io/faysarah
-#         imagePullPolicy: Always
-#         env:
-#         - name: RTSP_URL
-#           value: rtsp://admin:admin@192.168.1.109:554/cam/realmonitor?channel=1&subtype=1
-#       imagePullSecrets:
-#       - name: regcred2
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -145,43 +108,6 @@ spec:
           value: rtsp://root:root@192.168.1.111/axis-media/media.amp
       imagePullSecrets:
       - name: regcred2
-# ---
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: faysarah5
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: faysarah5
-#   template:
-#     metadata:
-#       labels:
-#         app: faysarah5
-#         group: faysarah
-#     spec:
-#       affinity:
-#         podAntiAffinity:
-#           preferredDuringSchedulingIgnoredDuringExecution:
-#           - weight: 100
-#             podAffinityTerm:
-#               labelSelector:
-#                 matchExpressions:
-#                   - key: "group"
-#                     operator: In
-#                     values:
-#                     - faysarah
-#               topologyKey: "kubernetes.io/hostname"
-#       containers:
-#       - name: faysarah
-#         image: jdemo.azurecr.io/faysarah
-#         imagePullPolicy: Always
-#         env:
-#         - name: RTSP_URL
-#           value: rtsp://admin:password@192.168.1.112:554/12
-#       imagePullSecrets:
-#       - name: regcred2
 ---
 apiVersion: v1
 kind: Service
